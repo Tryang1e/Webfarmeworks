@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= locals.title %>
+    </title>
+    <meta name="description" content="Node.js, Express, MongoDB로 만든 가계부 서비스">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- 헤더 : 로고, 상단 메뉴, 로그아웃 -->
+        <header class="header">
+            <a href="/allTransactions" class="header-logo">가계부 관리</a>
+
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="/allTransactions">내역</a></li>
+                    <li><a href="/add">추가</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-button">
+                <a href="/logout">로그아웃</a>
+            </div>
+        </header>
+
+        <!-- 메인 : 실제 내용 -->
+        <main class="main">
+            <%- body %>
+        </main>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<div class="admin-title">
+    <h2>
+        <%= locals.title %>
+    </h2>
+    <a href="/add" class="btn">+ 내역 추가</a>
+</div>
+
+<!-- 요약 -->
+<div class="summary">
+    <div class="summary-card income">
+        <span class="label">수입</span>
+        <span class="value">+<%= income.toLocaleString() %>원</span>
+    </div>
+    <div class="summary-card expense">
+        <span class="label">지출</span>
+        <span class="value">-<%= expense.toLocaleString() %>원</span>
+    </div>
+    <div class="summary-card balance">
+        <span class="label">잔액</span>
+        <span class="value"><%= balance.toLocaleString() %>원</span>
+    </div>
+</div>
+
+<ul class="admin-posts ledger-list">
+    <% if (data.length === 0) { %>
+        <li class="empty">등록된 내역이 없습니다. 첫 내역을 추가해 보세요.</li>
+    <% } %>
+
+    <% data.forEach(t => { %>
+        <li>
+            <div class="led-info">
+                <span class="led-date"><%= t.date.toISOString().slice(0, 10) %></span>
+                <% if (t.type === "income") { %>
+                    <span class="badge badge-income">수입</span>
+                <% } else { %>
+                    <span class="badge badge-expense">지출</span>
+                <% } %>
+                <span class="led-cat"><a href="/transaction/<%= t._id %>"><%= t.category %></a></span>
+                <span class="led-amt <%= t.type === 'income' ? 'amount-income' : 'amount-expense' %>">
+                    <%= t.type === 'income' ? '+' : '-' %><%= t.amount.toLocaleString() %>원
+                </span>
+                <% if (t.memo) { %>
+                    <span class="led-memo"><%= t.memo %></span>
+                <% } %>
+            </div>
+            <div class="admin-post-controls">
+                <a href="/transaction/<%= t._id %>" class="btn">상세</a>
+                <a href="/edit/<%= t._id %>" class="btn">편집</a>
+                <form action="/delete/<%= t._id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="삭제" class="btn-delete btn">
+                </form>
+            </div>
+        </li>
+    <% }) %>
+</ul>

@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+:root {
+    --black: #1c1c1c;
+    --gray: #7E7E7E;
+    --gray-light: #E4E4E4;
+    --red: #b30000;
+    --green: #2e7d32;
+    --blue: #1565c0;
+    --font-size-base: 1rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 2rem;
+    --border-radius: 10px;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--black);
+    font-size: var(--font-size-base);
+    background-color: rgb(236, 235, 234);
+    margin: 0;
+}
+
+a {
+    color: var(--black);
+}
+
+h1 {
+    font-size: var(--font-size-xl);
+}
+
+h2 {
+    font-size: var(--font-size-lg);
+}
+
+h3 {
+    font-size: var(--font-size-md);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="search"],
+select,
+textarea {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background-color: var(--black);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-delete {
+    padding: 10px 16px;
+    background-color: var(--red);
+}
+
+/* 레이아웃 */
+.container {
+    max-width: 982px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.main {
+    padding: 20px 0;
+}
+
+/* 메인 헤더 */
+.header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "logo button"
+        "menu menu";
+    padding-top: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    .header {
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas:
+            "logo menu button";
+    }
+}
+
+.header-logo {
+    font-weight: 800;
+    font-size: 25px;
+    text-decoration: none;
+    grid-area: logo;
+}
+
+.header-logo:hover {
+    text-decoration: underline;
+}
+
+.header-nav {
+    justify-content: center;
+    display: flex;
+    grid-area: menu;
+}
+
+.header-logo,
+.header-nav,
+.header-button {
+    width: 100%;
+}
+
+.header-button {
+    display: flex;
+    justify-content: end;
+    grid-area: button;
+}
+
+.header-nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 0;
+}
+
+.header-nav ul a {
+    padding: 10px;
+    text-decoration: none;
+}
+
+.header-nav ul a:hover {
+    text-decoration: underline;
+}
+
+/* 상단 텍스트 - HomePage */
+.top {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.top-heading {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.top-body {
+    font-size: var(--font-size-md);
+    margin: 5px 0 30px 0;
+}
+
+/* 소개/사용법 */
+.articles-heading {
+    margin-top: 3rem;
+    font-weight: 400;
+}
+
+.feature-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    line-height: 2.2;
+    font-size: 1.1rem;
+}
+
+.article {
+    white-space: pre-wrap;
+    line-height: 1.8;
+}
+
+/* 로그인 / 회원가입 박스 */
+.auth-box {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.auth-box hr {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid var(--gray-light);
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 1.2rem;
+    color: var(--gray);
+}
+
+.error-msg {
+    color: var(--red);
+    text-align: center;
+    font-weight: 600;
+}
+
+/* 관리자 화면 대시보드 */
+.admin-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 내역 상세 */
+.detail-card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    margin-top: 1rem;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    width: 110px;
+    flex-shrink: 0;
+    color: var(--gray);
+    font-weight: 600;
+}
+
+.detail-value {
+    flex: 1;
+    font-weight: 600;
+}
+
+/* 요약 카드 */
+.summary {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.summary-card {
+    flex: 1;
+    background: #fff;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.summary-card .label {
+    display: block;
+    font-size: .9rem;
+    color: var(--gray);
+    margin-bottom: .4rem;
+}
+
+.summary-card .value {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.summary-card.income .value {
+    color: var(--green);
+}
+
+.summary-card.expense .value {
+    color: var(--red);
+}
+
+.summary-card.balance .value {
+    color: var(--blue);
+}
+
+@media only screen and (max-width: 600px) {
+    .summary {
+        flex-direction: column;
+    }
+}
+
+/* 내역 목록 */
+.admin-posts {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.admin-posts li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.admin-posts li.empty {
+    justify-content: center;
+    color: var(--gray);
+}
+
+.led-info {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    flex-wrap: wrap;
+}
+
+.led-date {
+    color: var(--gray);
+    font-size: .9rem;
+    width: 90px;
+}
+
+.led-cat {
+    font-weight: 600;
+}
+
+.badge {
+    padding: .2rem .5rem;
+    border-radius: .3rem;
+    color: #fff;
+    font-size: .8rem;
+}
+
+.badge-income {
+    background-color: var(--green);
+}
+
+.badge-expense {
+    background-color: var(--red);
+}
+
+.amount-income {
+    color: var(--green);
+    font-weight: 700;
+}
+
+.amount-expense {
+    color: var(--red);
+    font-weight: 700;
+}
+
+.led-memo {
+    color: var(--gray);
+    font-size: .9rem;
+}
+
+.admin-post-controls {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.admin-post-controls form {
+    display: inline-block;
+}
+
+.admin-post-controls .btn {
+    font-size: .8rem;
+    padding: 6px 12px;
+    margin: 0 2px;
+}

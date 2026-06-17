@@ -1,0 +1,39 @@
+<a href="/allTransactions">&larr; 뒤로</a>
+<div class="admin-title">
+    <h2>
+        <%= locals.title %>
+    </h2>
+</div>
+
+<form action="/add" method="POST">
+    <label for="type"><b>구분</b></label>
+    <select name="type" id="type">
+        <option value="expense">지출</option>
+        <option value="income">수입</option>
+    </select>
+
+    <label for="date"><b>날짜</b></label>
+    <input type="date" name="date" id="date" value="<%= new Date().toISOString().slice(0, 10) %>">
+
+    <label for="category"><b>분류</b></label>
+    <input type="text" name="category" id="category" placeholder="예) 식비, 교통, 급여" list="category-list">
+    <datalist id="category-list">
+        <option value="식비"></option>
+        <option value="교통"></option>
+        <option value="주거/통신"></option>
+        <option value="쇼핑"></option>
+        <option value="문화/여가"></option>
+        <option value="의료"></option>
+        <option value="급여"></option>
+        <option value="용돈"></option>
+        <option value="기타"></option>
+    </datalist>
+
+    <label for="amount"><b>금액(원)</b></label>
+    <input type="number" min="0" name="amount" id="amount" placeholder="10000">
+
+    <label for="memo"><b>메모</b></label>
+    <input type="text" name="memo" id="memo" placeholder="상세 내용 (선택)">
+
+    <input type="submit" value="저장" class="btn">
+</form>

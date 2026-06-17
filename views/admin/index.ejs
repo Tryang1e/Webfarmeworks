@@ -1,0 +1,18 @@
+<div class="auth-box">
+    <% if (locals.error) { %>
+        <p class="error-msg"><%= locals.error %></p>
+    <% } %>
+
+    <h3>로그인</h3>
+    <form action="/admin" method="POST">
+        <label for="username"><b>아이디</b></label>
+        <input type="text" name="username" id="username">
+
+        <label for="password"><b>비밀번호</b></label>
+        <input type="password" name="password" id="password">
+
+        <input type="submit" value="로그인" class="btn">
+    </form>
+
+    <p class="auth-switch">계정이 없으신가요? <a href="/register">회원가입</a></p>
+</div>
